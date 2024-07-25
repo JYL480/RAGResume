@@ -44,8 +44,24 @@ def generate_response(query):
 st.set_page_config(page_title="Chatbot", layout="wide")
 st.title("Lee Jun Yang's RAG Chatbot")
 st.subheader("Powered by Gemini LLM")
-st.write("Enter your query and get an answer based off Jun Yang's Resume")
+st.write("Enter your query and get an answer based on Jun Yang's Resume")
 
+# Sidebar with example questions
+st.sidebar.header("Example Questions")
+example_questions = [
+    "What are your key skills?",
+    "Can you describe your recent projects?",
+    "What is your educational background?",
+    "How many years of experience do you have?",
+    "What are your career goals?"
+]
+
+for question in example_questions:
+    if st.sidebar.button(question):
+        st.session_state.messages.append({"role": "user", "content": question})
+        with st.spinner("Generating response..."):
+            response = generate_response(question)
+        st.session_state.messages.append({"role": "assistant", "content": response})
 
 # Initialize chat history
 if "messages" not in st.session_state:

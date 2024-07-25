@@ -8,7 +8,7 @@ from sentence_transformers import SentenceTransformer, util
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Import texts and embedding df
-file_path = "text_chunks_and_embeddings_df.csv"
+file_path = "app/text_chunks_and_embeddings_df.csv"
 text_chunks_and_embedding_df = pd.read_csv(file_path)
 
 def read_embeddings() -> torch.Tensor:

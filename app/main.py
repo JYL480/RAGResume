@@ -54,7 +54,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # User input and processing
-user_input = st.chat_input("Ask me anything:")
+user_input = st.chat_input("Ask me anything:", "List me projects he has done!")
 
 if user_input:
     # Append user input to chat history

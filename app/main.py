@@ -8,17 +8,20 @@ import streamlit as st
 load_dotenv()
 
 # Initialize embeddings and resources
-embeddings, pages_and_chunks = read_embeddings()
+embeddings_resume, chunks_resume, embeddings_aboutMe, chunks_aboutMe = read_embeddings()
 
 # Function to process the query and generate a response
 def generate_response(query):
     # Retrieve relevant resources
-    score, indices, time_taken = retrieve_relevant_resources(query, embeddings)
-    context_items = [pages_and_chunks[i] for i in indices]
+    score_resume, indices_resume, score_about_me, indices_about_me, time_taken =  retrieve_relevant_resources(query, embeddings_resume, embeddings_aboutMe )
+    context_items_resume = [chunks_resume[i] for i in indices_resume]
+    context_items_about_me = [chunks_aboutMe[i] for i in indices_about_me]
+    context_items = context_items_about_me + context_items_resume # context_items = list(context_items_resume, context_items_about_me)
     prompt = prompt_formatter(query, context_items)
     
     # Configure API
     api_key = st.secrets["API_KEY"]
+    # api_key = os.getenv("API_KEY")
     genai.configure(api_key=api_key)
     
     # Safety settings
@@ -70,3 +73,7 @@ if user_input:
     # Display user input and bot response
     st.chat_message("user").markdown(user_input)
     st.chat_message("assistant").markdown(response)
+
+# query= "List all the projects"
+# response = generate_response(query)
+# print(response)

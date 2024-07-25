@@ -18,7 +18,7 @@ def generate_response(query):
     prompt = prompt_formatter(query, context_items)
     
     # Configure API
-    api_key = os.getenv('API_KEY')
+    api_key = st.secrets["API_KEY"]
     genai.configure(api_key=api_key)
     
     # Safety settings

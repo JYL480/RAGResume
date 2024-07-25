@@ -49,7 +49,7 @@ example_questions = [
     "What are your key skills?",
     "Can you describe your recent projects?",
     "What is your educational background?"
-    "What are your strengths?",
+    "What are your strengths?"
 ]
 
 for question in example_questions:

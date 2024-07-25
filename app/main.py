@@ -48,9 +48,8 @@ st.sidebar.header("Example Questions")
 example_questions = [
     "What are your key skills?",
     "Can you describe your recent projects?",
-    "What is your educational background?",
-    "How many years of experience do you have?",
-    "What are your career goals?"
+    "What is your educational background?"
+    "What are your strengths?",
 ]
 
 for question in example_questions:

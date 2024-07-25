@@ -48,7 +48,7 @@ st.sidebar.header("Example Questions")
 example_questions = [
     "What are your key skills?",
     "Can you describe your recent projects?",
-    "What is your educational background?"
+    "What is your educational background?",
     "What are your strengths?"
 ]
 

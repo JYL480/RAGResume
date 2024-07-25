@@ -24,7 +24,6 @@ def generate_response(query):
     # api_key = os.getenv("API_KEY")
     genai.configure(api_key=api_key)
     
-    # Safety settings
     safety_settings = [
         {"category": "HARM_CATEGORY_DANGEROUS", "threshold": "BLOCK_NONE"},
         {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
@@ -40,13 +39,11 @@ def generate_response(query):
     response = model.generate_content(prompt)
     return response.text
 
-# Streamlit UI setup
 st.set_page_config(page_title="Chatbot", layout="wide")
 st.title("Lee Jun Yang's RAG Chatbot")
 st.subheader("Powered by Gemini LLM")
 st.write("Enter your query and get an answer based on Jun Yang's Resume")
 
-# Sidebar with example questions
 st.sidebar.header("Example Questions")
 example_questions = [
     "What are your key skills?",

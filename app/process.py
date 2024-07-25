@@ -9,9 +9,11 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 # Import texts and embedding df
 file_path_resume = "app/text_chunks_and_embeddings_df.csv"
+# file_path_resume = "text_chunks_and_embeddings_df.csv"
 text_chunks_and_embedding_df = pd.read_csv(file_path_resume)
 
 file_path_aboutme = "app/embeddings_aboutMe.csv"
+# file_path_aboutme = "embeddings_aboutMe.csv"
 embeddings_aboutMe = pd.read_csv(file_path_aboutme)
 
 def read_embeddings() -> torch.Tensor:
